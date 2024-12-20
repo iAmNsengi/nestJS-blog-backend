@@ -1,10 +1,4 @@
-import {
-  forwardRef,
-  Inject,
-  Injectable,
-  InternalServerErrorException,
-  OnModuleInit
-} from '@nestjs/common';
+import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { OAuth2Client } from 'google-auth-library';
 import jwtConfig from 'src/auth/config/jwt.config';
@@ -66,7 +60,7 @@ export class GoogleAuthenticationService implements OnModuleInit {
       }
 
       // If not create a new user and then generate tokens
-      const newUser = await queryRunner.manager.create(User, {
+      const newUser = queryRunner.manager.create(User, {
         firstName,
         lastName,
         email,

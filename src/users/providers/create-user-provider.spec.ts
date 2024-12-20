@@ -3,6 +3,10 @@ import { UsersService } from './users.services';
 import { CreateUserProvider } from './create-user.provider';
 import { MailService } from 'src/mail/providers/mail.service';
 import { HashingProvider } from 'src/auth/providers/hashing.provider';
+import { Repository } from 'typeorm';
+
+type MockRepository<T = any> = Partial<Record<keyof Repository<T>, jest.Mock>>;
+  
 
 describe('CreateUserProvider', () => {
   let service: UsersService;
